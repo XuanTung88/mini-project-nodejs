@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Cosmetics — Upload & Merge Ảnh</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">💄 <span>Mini Cosmetics</span></div>
+    <div class="subtitle">Demo Buffer / Stream với Node.js + Express</div>
+  </header>
+
+  <main class="container">
+    <!-- Khu vực upload -->
+    <section class="card">
+      <h2>1. Upload ảnh sản phẩm</h2>
+      <p class="hint">Ảnh được gửi lên server theo <strong>stream</strong> (multer diskStorage), không load hết vào RAM.</p>
+
+      <form id="uploadForm" class="upload-form">
+        <label for="fileInput" class="dropzone" id="dropzone">
+          <span id="dropzoneText">Kéo thả ảnh vào đây, hoặc bấm để chọn file</span>
+          <input type="file" id="fileInput" name="productImage" accept="image/*" hidden />
+        </label>
+        <button type="submit" id="uploadBtn" class="btn btn-primary" disabled>Upload</button>
+      </form>
+
+      <div class="progress-wrap" id="progressWrap" hidden>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <span id="progressText">0%</span>
+      </div>
+      <div id="uploadResult" class="result-msg"></div>
+    </section>
+
+    <!-- Khu vực danh sách ảnh -->
+    <section class="card">
+      <div class="card-header-row">
+        <h2>2. Ảnh trên server</h2>
+        <button id="refreshBtn" class="btn btn-ghost">↻ Làm mới</button>
+      </div>
+      <p class="hint">Chọn nhiều ảnh để <strong>ghép luồng</strong> (merge) thành 1 file .zip tải về.</p>
+
+      <div id="fileGrid" class="file-grid">
+        <p class="empty-state" id="emptyState">Chưa có ảnh nào. Hãy upload ở trên.</p>
+      </div>
+
+      <div class="merge-bar">
+        <span id="selectedCount">Đã chọn: 0</span>
+        <button id="mergeBtn" class="btn btn-primary" disabled>⇩ Ghép & Tải ZIP</button>
+      </div>
+      <div id="mergeResult" class="result-msg"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Mini project học Buffer / Stream — Node.js &amp; Express
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

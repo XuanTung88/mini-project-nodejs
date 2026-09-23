@@ -1,0 +1,5 @@
+node_modules/
+server/uploads/*
+!server/uploads/.gitkeep
+client/downloaded_*
+client/merged-products.zip

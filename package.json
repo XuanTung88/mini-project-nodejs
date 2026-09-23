@@ -1,0 +1,13 @@
+{
+  "name": "mini_project",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mini project Node.js: server-client với Buffer/Stream, upload/download/merge ảnh sản phẩm mỹ phẩm qua Express",
+  "scripts": {
+    "server": "cd server && npm run dev",
+    "install:server": "cd server && npm install",
+    "client:upload": "node client/uploadClient.js",
+    "client:download": "node client/downloadClient.js",
+    "client:merge": "node client/mergeClient.js"
+  }
+}
